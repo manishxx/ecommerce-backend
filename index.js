@@ -9,6 +9,12 @@ const authRouter = require("./routes/authRoute");
 const productRouter = require("./routes/productRoute");
 const cookieParser = require("cookie-parser");
 const blogRouter = require("./routes/blogRoutes");
+const couponRouter = require("./routes/couponRoutes");
+
+const blogCategoryRouter = require("./routes/blogCatRoutes");
+const brandCategoryRouter = require("./routes/brandRoutes");
+const productCategoryRouter = require("./routes/productCategoryRoutes");
+
 const morgan = require("morgan");
 const { default: slugify } = require("slugify");
 
@@ -21,7 +27,11 @@ app.use(cookieParser());
 
 app.use("/api/user", authRouter);
 app.use("/api/product", productRouter);
+app.use("/api/coupon", couponRouter);
 app.use("/api/blog", blogRouter);
+app.use("/api/product-category", productCategoryRouter);
+app.use("/api/blog-category", blogCategoryRouter);
+app.use("/api/brand-category", brandCategoryRouter);
 app.use(notFound);
 app.use(errorHandler);
 app.listen(PORT, () => {

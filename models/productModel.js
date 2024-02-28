@@ -37,11 +37,7 @@ var productSchema = new mongoose.Schema(
       default: 0,
       select: false,
     },
-    images: [
-      {
-        type: Array,
-      },
-    ],
+    images: [],
     color: {
       type: String,
       enum: ["Black", "Brown", "Red"],
@@ -49,9 +45,14 @@ var productSchema = new mongoose.Schema(
     ratings: [
       {
         star: Number,
+        comment: String,
         postedBy: { type: String, ref: "User" },
       },
     ],
+    averageRatings: {
+      type: String,
+      default: 0,
+    },
   },
   { timestamps: true }
 );
