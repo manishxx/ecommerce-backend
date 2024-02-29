@@ -20,6 +20,7 @@ const { default: slugify } = require("slugify");
 
 dbConnect();
 app.use(morgan("dev"));
+// save order, save adress, cart, coupon applied pending
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
